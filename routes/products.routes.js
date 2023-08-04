@@ -1,29 +1,29 @@
 const router = require("express").Router();
-const Product = require("../models/Product.model")
+const Products = require("../models/Products.model")
 
 
 /* GET ALL PRODUCTS */
 router.get('/', async (req, res) => {
-  const allProducts = await Product.find()
+  const allProducts = await Products.find()
   res.json(allProducts)
 })
 
 /* GET ONE PRODUCT */
 router.get('/:productId', async (req, res) => {
   console.log(req.params)
-  const oneProduct = await Product.findById(req.params.productId)
+  const oneProduct = await Products.findById(req.params.productId)
   res.json(oneProduct)
 })
 
 /* CREATE PRODUCT */
 router.post('/', async (req, res) => {
-  const newProduct = await Product.create(req.body)
+  const newProduct = await Products.create(req.body)
   res.status(201).json(newProduct)
 })
 
 /* UPDATE PRODUCT */
 router.put('/:productId', async (req, res) => {
-  const updatedProduct = await Product.findByIdAndUpdate(req.params.productId, req.body, {
+  const updatedProduct = await Products.findByIdAndUpdate(req.params.productId, req.body, {
     new: true,
   })
   res.json(updatedProduct)

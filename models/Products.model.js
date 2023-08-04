@@ -20,7 +20,7 @@ const productsSchema = new Schema(
       trim: true,
       required: true,
       //This is a placeholder, we need to update the enum with the final categories:
-      enum: [one, two, three, four, five ]
+      enum: ["one", "two", "three", "four", "five" ]
     },
     price: {
       type: Number,
@@ -38,7 +38,7 @@ const productsSchema = new Schema(
     },
     state: {
       type: String,
-      enum: [available, reserved, sold],
+      enum: ["available", "reserved", "sold"],
     },
   },
   {
@@ -47,6 +47,6 @@ const productsSchema = new Schema(
   }
 );
 
-const Products = model("User", productsSchema);
+const Products = model("Products", productsSchema);
 
 module.exports = Products;

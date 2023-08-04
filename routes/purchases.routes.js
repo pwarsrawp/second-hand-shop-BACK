@@ -1,29 +1,29 @@
 const router = require("express").Router();
-const Purchase = require("../models/Purchase.model")
+const Purchases = require("../models/Purchases.model")
 
 
 /* GET ALL PURCHASES */
 router.get('/', async (req, res) => {
-  const allPurchases = await Purchase.find()
+  const allPurchases = await Purchases.find()
   res.json(allPurchases)
 })
 
 /* GET ONE PURCHASE */
 router.get('/:purchaseId', async (req, res) => {
   console.log(req.params)
-  const onePurchase = await Purchase.findById(req.params.purchaseId)
+  const onePurchase = await Purchases.findById(req.params.purchaseId)
   res.json(onePurchase)
 })
 
 /* CREATE PURCHASE */
 router.post('/', async (req, res) => {
-  const newPurchase = await Purchase.create(req.body)
+  const newPurchase = await Purchases.create(req.body)
   res.status(201).json(newPurchase)
 })
 
 /* UPDATE PURCHASE */
 router.put('/:purchaseId', async (req, res) => {
-  const updatedPurchase = await Purchase.findByIdAndUpdate(req.params.purchaseId, req.body, {
+  const updatedPurchase = await Purchases.findByIdAndUpdate(req.params.purchaseId, req.body, {
     new: true,
   })
   res.json(updatedPurchase)
