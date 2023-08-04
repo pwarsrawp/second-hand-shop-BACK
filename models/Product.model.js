@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // MODEL PENDING UPDATE
-const productsSchema = new Schema(
+const productSchema = new Schema(
   {
     title:{
       type: String,
@@ -47,6 +47,6 @@ const productsSchema = new Schema(
   }
 );
 
-const Products = model("Products", productsSchema);
+const Product = model("Product", productSchema);
 
-module.exports = Products;
+module.exports = Product;

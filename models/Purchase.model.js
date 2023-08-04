@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // MODEL PENDING UPDATE
-const purchasesSchema = new Schema(
+const purchaseSchema = new Schema(
   {
     item:{
       type: String,
@@ -32,6 +32,6 @@ const purchasesSchema = new Schema(
   }
 );
 
-const Purchases = model("Purchases", purchasesSchema);
+const Purchase = model("Purchase", purchaseSchema);
 
-module.exports = Purchases;
+module.exports = Purchase;
