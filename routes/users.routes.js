@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 /* GET ONE USER */
 router.get('/:userId', async (req, res) => {
   console.log(req.params)
-  const user = await user.findById(req.params.userId)
+  const user = await User.findById(req.params.userId)
   res.json(user)
 })
 
