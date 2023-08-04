@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
 /* GET ONE PURCHASE */
 router.get('/:purchaseId', async (req, res) => {
   console.log(req.params)
-  const purchase = await Purchase.findById(req.params.purchaseId)
-  res.json(purchase)
+  const onePurchase = await Purchase.findById(req.params.purchaseId)
+  res.json(onePurchase)
 })
 
 /* CREATE PURCHASE */

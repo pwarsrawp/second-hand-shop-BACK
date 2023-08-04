@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
 /* GET ONE PRODUCT */
 router.get('/:productId', async (req, res) => {
   console.log(req.params)
-  const product = await Product.findById(req.params.productId)
-  res.json(product)
+  const oneProduct = await Product.findById(req.params.productId)
+  res.json(oneProduct)
 })
 
 /* CREATE PRODUCT */

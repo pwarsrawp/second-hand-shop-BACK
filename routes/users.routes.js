@@ -4,15 +4,15 @@ const User = require("../models/User.model")
 
 /* GET ALL USERS */
 router.get('/', async (req, res) => {
-  const response = await User.find()
-  res.json(response)
+  const allUsers = await User.find()
+  res.json(allUsers)
 })
 
 /* GET ONE USER */
 router.get('/:userId', async (req, res) => {
   console.log(req.params)
-  const user = await User.findById(req.params.userId)
-  res.json(user)
+  const oneUser = await User.findById(req.params.userId)
+  res.json(oneUser)
 })
 
 /* CREATE USER */
