@@ -22,7 +22,18 @@ router.post('/signup', async (req, res) => {
   const passwordHash = bcrypt.hashSync(payload.password, salt)
 
   try {
-    await User.create({ username: payload.username, email: payload.email, password: passwordHash })
+    await User.create({ 
+      username: payload.username, 
+      fullname: payload.fullname,
+      email: payload.email, 
+      phone: payload.phone,
+      address: {
+        street: payload.address.street,
+        city: payload.address.city,
+        country: payload.address.country,
+      },
+      password: passwordHash
+    })
     res.status(201).json({ message: 'User added successfully' })
   } catch (err) {
     console.log(err)
