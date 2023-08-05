@@ -2,10 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const purchaseSchema = new Schema(
   {
-    product:{
-      type:Schema.Types.ObjectId,
-      ref: 'Product',
-    },
     seller: {
       type: Schema.Types.ObjectId,
       ref:"User",
@@ -14,6 +10,10 @@ const purchaseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref:"User",
     },
+    product:{
+      type:Schema.Types.ObjectId,
+      ref: 'Product',
+    }
   },
   {  
     timestamps: true
