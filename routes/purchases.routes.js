@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Purchases = require("../models/Purchase.model")
+const Purchase = require("../models/Purchase.model")
 
 
 /* GET ALL PURCHASES */
