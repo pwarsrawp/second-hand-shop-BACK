@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User.model")
-
+const Purchase = require("../models/Purchase.model")
 
 /* GET ALL USERS */
 router.get('/', async (req, res) => {
@@ -34,5 +34,19 @@ router.delete('/:userId', async (req, res) => {
   await User.findByIdAndDelete(req.params.userId)
   res.status(202).json({ message: 'User successfully deleted' })
 })
+
+// PURCHASES BY SPECIFIC USER
+router.get('/:userId/purchases', async (req, res) => {
+  try {
+    const purchaseByUser = await Purchase.findById(req.params.userId)
+      .populate('user')
+      .populate('product');
+    res.json(purchaseByUser);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching purchases', error });
+  }
+});
+
+
 
 module.exports = router
