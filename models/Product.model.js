@@ -1,26 +1,24 @@
 const { Schema, model } = require("mongoose");
 
-// MODEL PENDING UPDATE
+// template for category enum : ["Arts and Crafts","Musical Instruments", "Literature", "Bycicles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous", ],
+// template for item condition enum: ["new", "as good as new", "good", "fair", "has given it all"]
 const productSchema = new Schema(
   {
     title:{
       type: String,
       trim: true,
       required: true,
-      
     },
     description: {
       type: String,
       trim: true,
       required: true,
-      
     },
     category: {
       type: String,
       trim: true,
       required: true,
-      //This is a placeholder, we need to update the enum with the final categories:
-      enum: ["one", "two", "three", "four", "five" ]
+      enum: ["Arts and Crafts","Musical Instruments","Literature", "Bycicles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous"],
     },
     price: {
       type: Number,
@@ -30,7 +28,7 @@ const productSchema = new Schema(
     },
     item_condition: {
       type: String,
-      enum: ['new', 'as good as new', 'good', 'fair', 'has given it all' ],
+      enum: ["new", "as good as new", "good", "fair", "has given it all"],
     },
     imageUrl: {
       type: String,
@@ -40,6 +38,17 @@ const productSchema = new Schema(
       type: String,
       enum: ["available", "reserved", "sold"],
     },
+    favorite: {
+      type: Boolean
+    },
+    wishlist: {
+      type: Boolean
+    },
+    seller: {
+      type: String,
+      trim: true,
+      required: true
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
