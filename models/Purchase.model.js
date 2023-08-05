@@ -1,33 +1,21 @@
 const { Schema, model } = require("mongoose");
 
-// MODEL PENDING UPDATE
 const purchaseSchema = new Schema(
   {
-    item:{
-      type: String,
-      trim: true,
-      required: true,
-      
+    product:{
+      type:Schema.Types.ObjectId,
+      ref: 'Product',
     },
     seller: {
-      type: String,
-      trim: true,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref:"User",
     },
     buyer: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    price: {
-      type: Number,
-      min: 0,
-      trim: true,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref:"User",
     },
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+  {  
     timestamps: true
   }
 );
