@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Product = require("../models/Product.model")
-
+const uploader = require('../config/cloudinary.config');
 
 /* GET ALL PRODUCTS */
 router.get('/', async (req, res) => {
@@ -16,13 +16,13 @@ router.get('/:productId', async (req, res) => {
 })
 
 /* CREATE PRODUCT */
-router.post('/', async (req, res) => {
+router.post('/', uploader.single("imageUrl"), async (req, res) => {
   const newProduct = await Product.create(req.body)
   res.status(201).json(newProduct)
 })
 
 /* UPDATE PRODUCT */
-router.put('/:productId', async (req, res) => {
+router.put('/:productId', uploader.single("imageUrl"), async (req, res) => {
   const updatedProduct = await Product.findByIdAndUpdate(req.params.productId, req.body, {
     new: true,
   })
