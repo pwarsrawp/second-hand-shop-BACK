@@ -17,9 +17,33 @@ router.get('/:productId', async (req, res) => {
 
 /* CREATE PRODUCT */
 router.post('/', uploader.single("imageUrl"), async (req, res) => {
-  const newProduct = await Product.create(req.body)
-  res.status(201).json(newProduct)
-})
+  try {
+    
+    const { title, description, category, price, item_condition, state, favorite, wishlist, seller  } = req.body;
+    const imageUrl = req.file.path; // Get the Cloudinary URL from multer
+
+    console.log("Creating product with data:", { title, description, category, price, imageUrl });
+    
+    const newProduct = await Product.create({
+      title,
+      description,
+      category,
+      price,
+      item_condition,
+      imageUrl,
+      state,
+      favorite,
+      wishlist,
+      seller
+    });
+
+    res.status(201).json(newProduct);
+  } catch (error) {
+    res.status(500).json({ error: 'Error creating product', message: error.message });
+  }
+});
+
+
 
 /* UPDATE PRODUCT */
 router.put('/:productId', uploader.single("imageUrl"), async (req, res) => {
