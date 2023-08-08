@@ -28,7 +28,7 @@ const productSchema = new Schema(
     },
     item_condition: {
       type: String,
-      enum: ["new", "as good as new", "good", "fair", "has given it all"],
+      enum: ["available", "new", "as good as new", "good", "fair", "has given it all"],
     },
     imageUrl: {
       type: String,
@@ -38,7 +38,7 @@ const productSchema = new Schema(
       type: String,
       enum: ["available", "reserved", "sold"],
     },
-    favorite: {
+    sold: {
       type: Boolean
     },
     wishlist: {
