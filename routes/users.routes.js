@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const Purchase = require("../models/Purchase.model")
 
@@ -23,10 +24,31 @@ router.post('/', async (req, res) => {
 
 /* UPDATE USER */
 router.put('/:userId', async (req, res) => {
-  const updatedUser = await User.findByIdAndUpdate(req.params.userId, req.body, {
+  const payload = req.body
+
+  /* PASSWORD CHECK */
+  try {
+    if (!payload.passwordHash) {
+      delete payload.passwordHash // new PW
+      delete payload.password // old PW
+    } else {
+      const pwCheck = await User.findById(req.params.userId)
+      if (bcrypt.compareSync(payload.password, pwCheck.password)) {
+
+        /* PASSWORD UPDATE */
+        payload.password = bcrypt.hashSync(payload.passwordHash, salt)
+        delete payload.passwordHash
+      }
+    }
+  } catch (error) {
+    console.log("An error occurred while verifying the password: ", error)
+  }
+  
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.userId, payload, {
     new: true,
   })
-  res.json(updatedUser)
+res.json(updatedUser)
 })
 
 /* DELETE USER */
