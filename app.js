@@ -18,7 +18,7 @@ const productsRoutes = require("./routes/products.routes");
 app.use("/products", productsRoutes);
 
 const purchasesRoutes = require("./routes/purchases.routes");
-app.use("/purchases", purchasesRoutes);
+app.use("/products/:productId/purchase", purchasesRoutes);
 
 
 require("./error-handling")(app);

@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-// template for category enum : ["Arts and Crafts","Musical Instruments", "Literature", "Bycicles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous", ],
-// template for item condition enum: ["new", "as good as new", "good", "fair", "has given it all"]
 const productSchema = new Schema(
   {
     title:{

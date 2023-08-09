@@ -16,7 +16,7 @@ router.get('/:purchaseId', async (req, res) => {
 })
 
 /* CREATE PURCHASE */
-router.post('/', async (req, res) => {
+router.post('/purchase', async (req, res) => {
   const newPurchase = await Purchase.create(req.body)
   res.status(201).json(newPurchase)
 })
