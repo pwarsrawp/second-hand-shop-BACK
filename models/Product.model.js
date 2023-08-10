@@ -26,7 +26,7 @@ const productSchema = new Schema(
     },
     item_condition: {
       type: String,
-      enum: ["available", "new", "as good as new", "good", "fair", "has given it all"],
+      enum: ["Available", "New", "As good as new", "Good", "Fair", "Has given it all"],
     },
     imageUrl: {
       type: String,
