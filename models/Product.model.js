@@ -14,7 +14,6 @@ const productSchema = new Schema(
     },
     category: {
       type: String,
-      trim: true,
       required: true,
       enum: ["Arts and Crafts","Musical Instruments","Literature", "Bycicles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous"],
     },
@@ -37,9 +36,6 @@ const productSchema = new Schema(
       enum: ["available", "reserved", "sold"],
     },
     sold: {
-      type: Boolean
-    },
-    wishlist: {
       type: Boolean
     },
     seller: {
