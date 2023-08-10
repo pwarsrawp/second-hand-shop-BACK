@@ -15,7 +15,7 @@ const productSchema = new Schema(
     category: {
       type: String,
       required: true,
-      enum: ["Arts and Crafts","Musical Instruments","Literature", "Bycicles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous"],
+      enum: ["Arts and Crafts", "Musical Instruments", "Literature", "Bicycles", "Fashion and Accesories", "Electronics", "Automotive", "Miscellaneous"],
     },
     price: {
       type: Number,
