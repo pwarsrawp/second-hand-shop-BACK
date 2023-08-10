@@ -13,6 +13,10 @@ const purchaseSchema = new Schema(
     product:{
       type:Schema.Types.ObjectId,
       ref: 'Product',
+    },
+    state:{
+      type: String,
+      enum: ["completed", "pending", "cancelled"]
     }
   },
   {  
