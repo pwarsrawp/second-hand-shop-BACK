@@ -34,6 +34,7 @@ const productSchema = new Schema(
     state: {
       type: String,
       enum: ["available", "reserved", "sold"],
+      default: "available",
     },
     sold: {
       type: Boolean
