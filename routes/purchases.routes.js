@@ -10,13 +10,12 @@ router.get('/', async (req, res) => {
 
 /* GET ONE PURCHASE */
 router.get('/:purchaseId', async (req, res) => {
-  console.log(req.params)
   const onePurchase = await Purchase.findById(req.params.purchaseId)
   res.json(onePurchase)
 })
 
 /* CREATE PURCHASE */
-router.post('/purchase', async (req, res) => {
+router.post('/', async (req, res) => {
   const newPurchase = await Purchase.create(req.body)
   res.status(201).json(newPurchase)
 })
