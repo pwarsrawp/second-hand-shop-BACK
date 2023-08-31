@@ -30,7 +30,7 @@ module.exports = (app) => {
 
   app.use(
     cors({
-      origin: ["https://poetic-conkies-880cc5.netlify.app", "https://the3rdfoot.netlify.app"]
+      origin: "*"
     })
   );
 
