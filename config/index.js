@@ -22,9 +22,15 @@ module.exports = (app) => {
   app.set("trust proxy", 1);
 
   // controls a very specific header to pass headers from the frontend
+  // app.use(
+  //   cors({
+  //     origin: [FRONTEND_URL]
+  //   })
+  // );
+
   app.use(
     cors({
-      origin: [FRONTEND_URL]
+      origin: ["https://poetic-conkies-880cc5.netlify.app", "https://the3rdfoot.netlify.app"]
     })
   );
 
